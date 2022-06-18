@@ -1,0 +1,19 @@
+{
+  "name": "package.json",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "ts-node": "TS_NODE_COMPILER_OPTIONS=\"{\\\"module\\\":\\\"es2015\\\"}\" ts-node",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "ts-node": "^10.8.1",
+    "typescript": "^4.5.4",
+    "vite": "^2.9.9",
+    "vitest": "^0.14.2"
+  }
+}
