@@ -171,8 +171,10 @@ class DoublyLinkedList<T = number> {
       const nodeToBeDeleted = node!.next
 
       node!.next = nodeToBeDeleted!.next
-      nodeToBeDeleted!.next!.prev = node!
+      node!.next!.next!.prev = node!
 
+      nodeToBeDeleted!.next = null
+      nodeToBeDeleted!.prev = null
       this.length--
       return nodeToBeDeleted!
     }
