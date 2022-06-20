@@ -78,11 +78,15 @@ class DoublyLinkedList<T = number> {
   }
 
   unshift(value: T): Node<T> | undefined {
-    if (this.length === 0) return undefined
-
     if (this.length === 1) return this.push(value)
 
     const newNode = new Node<T>(value)
+
+    if (this.length === 0) {
+      this.head = newNode
+      this.tail = newNode
+      return newNode
+    }
 
     newNode.next = this.head
     this.head!.prev = newNode
