@@ -1,23 +1,23 @@
-export class Node<T = number> {
+class Node<T = number> {
   value: T
-  next: Node | null
+  next: Node<T> | null
   constructor(value: T) {
     this.value = value
     this.next = null
   }
 }
 
-class LinkedList {
-  head: Node | null
-  tail: Node | null
-  length: number
+export class LinkedList<T = number> {
+  head: Node<T> | null
+  tail: Node<T> | null
+  private length: number
   constructor() {
     this.head = null
     this.tail = null
     this.length = 0
   }
 
-  push(value: number): Node {
+  push(value: T): Node<T> {
     const node = new Node(value)
     if (!this.head) {
       this.head = node
@@ -30,7 +30,7 @@ class LinkedList {
     return node
   }
 
-  pop(): Node | undefined {
+  pop(): Node<T> | undefined {
     if (!this.head) return undefined
     if (this.length === 1) {
       const node = this.head
@@ -40,7 +40,7 @@ class LinkedList {
       return node
     }
     let current = this.head
-    while (current.next?.next) {
+    while (current.next) {
       current = current.next
     }
     this.tail = current.next
@@ -49,7 +49,7 @@ class LinkedList {
     return current
   }
 
-  shift(value: number): Node {
+  shift(value: T): Node<T> {
     if (this.length === 0) return this.push(value)
     const node = new Node(value)
     node.next = this.head
@@ -58,7 +58,7 @@ class LinkedList {
     return node
   }
 
-  unshift(): Node | undefined {
+  unshift(): Node<T> | undefined {
     if (this.length === 0) return undefined
     if (this.length === 1) return this.pop()
     const node = this.head
@@ -69,7 +69,7 @@ class LinkedList {
     return node!
   }
 
-  get(index: number): Node | undefined {
+  get(index: number): Node<T> | undefined {
     if (index >= this.length || index < 0) return undefined
     let current = this.head
     for (let i = 0; i < index; i++) {
@@ -78,14 +78,14 @@ class LinkedList {
     return current!
   }
 
-  set(index: number, value: number): boolean {
+  set(index: number, value: T): boolean {
     if (index < 0 || index >= this.length) return false
     const node = this.get(index)
     node!.value = value
     return true
   }
 
-  insertAt(index: number, value: number): Node | undefined {
+  insertAt(index: number, value: T): Node<T> | undefined {
     if (index < 0 || index > this.length) return undefined
 
     if (index === this.length) return this.push(value)
@@ -102,7 +102,7 @@ class LinkedList {
     return newNode
   }
 
-  removeAt(index: number): Node | undefined {
+  removeAt(index: number): Node<T> | undefined {
     if (index < 0 || index > this.length) return undefined
 
     if (index === this.length) return this.pop()
@@ -117,7 +117,7 @@ class LinkedList {
     return next!
   }
 
-  reverse(): LinkedList | undefined {
+  reverse(): LinkedList<T> | undefined {
     if (this.length === 0) return undefined
 
     let current = this.head
@@ -136,6 +136,16 @@ class LinkedList {
     return this!
   }
 
+  clearAll() {
+    this.head = null
+    this.tail = null
+    this.length = 0
+  }
+
+  size() {
+    return this.length
+  }
+
   print() {
     const arr = []
     let current = this.head
@@ -146,26 +156,28 @@ class LinkedList {
     console.log(arr)
   }
 }
+// @ts-ignore
+function test() {
+  const ll = new LinkedList()
+  ll.push(10)
+  ll.push(20)
+  ll.push(30)
+  ll.print()
+  ll.unshift()
+  ll.print()
+  ll.shift(10)
+  ll.push(40)
+  console.log(ll.size())
+  ll.print()
+  console.log(ll.get(3))
+  console.log(ll.get(1))
+  console.log(ll.set(1, 200))
+  ll.print()
+  ll.removeAt(1)
+  ll.print()
 
-const ll = new LinkedList()
-ll.push(10)
-ll.push(20)
-ll.push(30)
-ll.print()
-ll.unshift()
-ll.print()
-ll.shift(10)
-ll.push(40)
-console.log(ll.length)
-ll.print()
-console.log(ll.get(3))
-console.log(ll.get(1))
-console.log(ll.set(1, 200))
-ll.print()
-ll.removeAt(1)
-ll.print()
-
-ll.reverse()
-ll.print()
-ll.set(0, 4000)
-ll.print()
+  ll.reverse()
+  ll.print()
+  ll.set(0, 4000)
+  ll.print()
+}

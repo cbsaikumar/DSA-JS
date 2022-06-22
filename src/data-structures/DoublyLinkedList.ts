@@ -1,4 +1,4 @@
-export class Node<T = number> {
+class Node<T = number> {
   value: T
   next: Node<T> | null
   prev: Node<T> | null
@@ -10,7 +10,7 @@ export class Node<T = number> {
   }
 }
 
-class DoublyLinkedList<T = number> {
+export class DoublyLinkedList<T = number> {
   length: number
   head: Node<T> | null
   tail: Node<T> | null
