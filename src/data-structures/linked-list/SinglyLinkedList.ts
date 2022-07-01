@@ -8,8 +8,8 @@ class Node<T = number> {
 }
 
 export class LinkedList<T = number> {
-  head: Node<T> | null
-  tail: Node<T> | null
+  private head: Node<T> | null
+  private tail: Node<T> | null
   private length: number
   constructor() {
     this.head = null
@@ -146,14 +146,18 @@ export class LinkedList<T = number> {
     return this.length
   }
 
-  print() {
+  getItemsAsArray(): T[] {
     const arr = []
     let current = this.head
     while (current) {
       arr.push(current.value)
       current = current.next
     }
-    console.log(arr)
+    return arr
+  }
+
+  print() {
+    console.log(this.getItemsAsArray())
   }
 }
 // @ts-ignore

@@ -112,7 +112,7 @@ export class DoublyLinkedList<T = number> {
       // second-half
       let current = this.tail!
 
-      while (index !== 0) {
+      while (this.length - 1 - index !== 0) {
         current = current!.prev!
         index--
       }
@@ -128,7 +128,7 @@ export class DoublyLinkedList<T = number> {
     return true
   }
 
-  reverse(): DoublyLinkedList | undefined {
+  reverse(): T[] | undefined {
     if (this.length === 0) return undefined
 
     let tail = this.tail
@@ -137,12 +137,11 @@ export class DoublyLinkedList<T = number> {
       arr.push(tail.value)
       tail = tail.prev
     }
-    console.log(arr)
-    return ll
+    return arr
   }
 
   insertAt(index: number, value: T): Node<T> | undefined {
-    if (this.length === 0 || index < 0 || index > this.length) return undefined
+    if (index < 0 || index > this.length) return undefined
 
     if (index === this.length) {
       return this.push(value)
@@ -171,11 +170,12 @@ export class DoublyLinkedList<T = number> {
     } else if (index === 0) {
       return this.shift()
     } else {
-      const node = this.get(index - 1)
-      const nodeToBeDeleted = node!.next
-
-      node!.next = nodeToBeDeleted!.next
-      node!.next!.next!.prev = node!
+      const node = this.get(index - 1)!
+      console.dir(node.next, { depth: 1 })
+      const nodeToBeDeleted = node.next!
+      const next = nodeToBeDeleted.next!
+      node.next = next
+      next.prev = node!
 
       nodeToBeDeleted!.next = null
       nodeToBeDeleted!.prev = null
@@ -196,26 +196,29 @@ export class DoublyLinkedList<T = number> {
   }
 }
 
-const ll = new DoublyLinkedList()
-ll.push(1)
-ll.push(2)
-ll.push(3)
-ll.push(4)
+// @ts-ignore
+function test() {
+  const ll = new DoublyLinkedList()
+  ll.push(1)
+  ll.push(2)
+  ll.push(3)
+  ll.push(4)
 
-ll.print()
-ll.pop()
-ll.print()
-ll.shift()
-ll.print()
-ll.unshift(1)
-ll.print()
-ll.reverse()
-console.log(ll.get(1))
-ll.set(1, 20)
-ll.print()
-ll.insertAt(2, 30)
-ll.print()
-ll.removeAt(1)
-ll.print()
-ll.removeAt(1)
-ll.print()
+  ll.print()
+  ll.pop()
+  ll.print()
+  ll.shift()
+  ll.print()
+  ll.unshift(1)
+  ll.print()
+  ll.reverse()
+  console.log(ll.get(1))
+  ll.set(1, 20)
+  ll.print()
+  ll.insertAt(2, 30)
+  ll.print()
+  ll.removeAt(1)
+  ll.print()
+  ll.removeAt(1)
+  ll.print()
+}

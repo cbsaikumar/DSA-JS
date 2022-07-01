@@ -1,4 +1,4 @@
-import { LinkedList } from './SinglyLinkedList'
+import { LinkedList } from './linked-list/SinglyLinkedList'
 
 export class Queue<T = number> {
   private items: LinkedList<T>
@@ -29,13 +29,20 @@ export class Queue<T = number> {
   print() {
     this.items.print()
   }
+
+  getItemsAsArray() {
+    return this.items.getItemsAsArray()
+  }
 }
 
-const q = new Queue()
+// @ts-ignore
+function test() {
+  const q = new Queue()
 
-q.enqueue(10)
-q.enqueue(11)
-q.enqueue(12)
-q.print()
-q.dequeue()
-q.print()
+  q.enqueue(10)
+  q.enqueue(11)
+  q.enqueue(12)
+  q.print()
+  q.dequeue()
+  q.print()
+}
