@@ -16,8 +16,10 @@ export function validAnagrams(first: string, second: string) {
   }
 
   for (const key in firstCount) {
-    if (!(key in secondCount)) return false
-    if (firstCount[key] != secondCount[key]) return false
+    if (key) {
+      if (!(key in secondCount)) return false
+      if (firstCount[key] != secondCount[key]) return false
+    }
   }
 
   return true

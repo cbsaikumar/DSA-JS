@@ -24,6 +24,7 @@ class BST<T = number> {
       return true
     }
     let root = this.root
+    // eslint-disable-next-line
     while (true) {
       if (root.value === value) return false
       if (value > root.value) {
@@ -44,6 +45,7 @@ class BST<T = number> {
 
   exists(value: T): boolean {
     let root = this.root
+    // eslint-disable-next-line
     while (true) {
       if (!root) return false
       if (root.value === value) return true
@@ -103,6 +105,7 @@ class BST<T = number> {
 }
 
 // @ts-ignore
+// eslint-disable-next-line
 function test() {
   const bst = new BST()
   bst.insert(15)

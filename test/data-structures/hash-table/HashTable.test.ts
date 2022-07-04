@@ -1,4 +1,4 @@
-import { afterEach, beforeEach, describe, expect, it, vitest } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { HashTable } from '../../../src/data-structures/hash-table/HashTable'
 
 describe('SinglyLinkedList', () => {

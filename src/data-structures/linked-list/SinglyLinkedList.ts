@@ -161,6 +161,7 @@ export class LinkedList<T = number> {
   }
 }
 // @ts-ignore
+// eslint-disable-next-line
 function test() {
   const ll = new LinkedList()
   ll.push(10)

@@ -36,6 +36,7 @@ export class Queue<T = number> {
 }
 
 // @ts-ignore
+// eslint-disable-next-line
 function test() {
   const q = new Queue()
 

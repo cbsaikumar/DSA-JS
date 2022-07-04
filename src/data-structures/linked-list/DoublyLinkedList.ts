@@ -61,8 +61,7 @@ export class DoublyLinkedList<T = number> {
   shift(): Node<T> | undefined {
     if (!this.head) return undefined
 
-    let currentTail: Node<T>
-    currentTail = this.head
+    const currentTail = this.head
     if (this.length === 1) {
       this.head = null
       this.tail = null
@@ -197,6 +196,7 @@ export class DoublyLinkedList<T = number> {
 }
 
 // @ts-ignore
+// eslint-disable-next-line
 function test() {
   const ll = new DoublyLinkedList()
   ll.push(1)

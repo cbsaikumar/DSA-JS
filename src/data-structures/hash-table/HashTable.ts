@@ -1,4 +1,5 @@
 export class HashTable {
+  // eslint-disable-next-line
   _keysMap: [string?, any?][] = []
   constructor(size = 31) {
     // 31 prime number, some default size
@@ -8,12 +9,13 @@ export class HashTable {
     let hash = 0
     const WEIRD_PRIME = 31
     for (let i = 0; i < Math.min(key.length, 100); i++) {
-      let char = key.charCodeAt(i) - 96
+      const char = key.charCodeAt(i) - 96
       hash = (hash * WEIRD_PRIME + char) % arrayLen
     }
     return hash
   }
 
+  // eslint-disable-next-line
   set(key: string, value: any) {
     const index = this.hashCode(key, this._keysMap.length)
     if (!this._keysMap[index]) {
@@ -53,6 +55,7 @@ export class HashTable {
 }
 
 // @ts-ignore
+// eslint-disable-next-line
 function test() {
   const ht = new HashTable(5)
   ht.set('hello', 'hi there')

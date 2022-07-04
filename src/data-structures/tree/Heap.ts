@@ -18,6 +18,7 @@ export class MaxBinaryHeap<T = number> {
     let elementIdx = this.values.length - 1
 
     // bubble-up the element to place it at right index
+    // eslint-disable-next-line
     while (true) {
       const parentIdx = Math.floor(Math.abs(elementIdx - 1) / 2) // Math.abs just to handle the first element insert
       if (this.values[elementIdx] <= this.values[parentIdx]) break
@@ -29,13 +30,13 @@ export class MaxBinaryHeap<T = number> {
   }
 
   extractMax(): T | undefined {
-    let max
     let elementIdx = 0
     let newIdx = this.values.length - 1
 
     this.swap(this.values, elementIdx, newIdx)
-    max = this.values.pop()
+    const max = this.values.pop()
 
+    // eslint-disable-next-line
     while (true) {
       const first = 2 * elementIdx + 1
       const second = 2 * elementIdx + 2
@@ -73,6 +74,7 @@ export class MaxBinaryHeap<T = number> {
 }
 
 // @ts-ignore
+// eslint-disable-next-line
 function test() {
   const heap = new MaxBinaryHeap()
   heap.insert(10)
@@ -89,3 +91,5 @@ function test() {
   // console.dir(heap, { depth: 1 })
   heap.print()
 }
+
+// test()

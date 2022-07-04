@@ -28,6 +28,7 @@ export class PriorityQueue {
     let elementIdx = this.values.length - 1
 
     // bubble-up the element to place it at right index
+    // eslint-disable-next-line
     while (true) {
       const parentIdx = Math.floor(Math.abs(elementIdx - 1) / 2) // Math.abs just to handle the first element enqueue
       if (this.values[elementIdx].priority >= this.values[parentIdx].priority)
@@ -40,13 +41,13 @@ export class PriorityQueue {
   }
 
   dequeue(): Node | undefined {
-    let min
     let elementIdx = 0
     let newIdx = this.values.length - 1
 
     this.swap(this.values, elementIdx, newIdx)
-    min = this.values.pop()
+    const min = this.values.pop()
 
+    // eslint-disable-next-line
     while (true) {
       const first = 2 * elementIdx + 1
       const second = 2 * elementIdx + 2
@@ -86,6 +87,7 @@ export class PriorityQueue {
 }
 
 // @ts-ignore
+// eslint-disable-next-line
 function test() {
   const q = new PriorityQueue()
   q.enqueue('High fever', 3)
