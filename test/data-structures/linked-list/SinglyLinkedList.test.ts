@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
-import { LinkedList } from '../../../data-structures/linked-list/SinglyLinkedList'
+import { LinkedList } from '../../../src/data-structures/linked-list/SinglyLinkedList'
 
 describe('SinglyLinkedList', () => {
   let ll: LinkedList

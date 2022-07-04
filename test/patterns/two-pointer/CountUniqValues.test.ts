@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { countUniqValues } from '../../../patterns/two-pointer/CountUniqValues'
+import { countUniqValues } from '../../../src/patterns/two-pointer/CountUniqValues'
 
 describe('Validate sumZero', () => {
   it('should return uniq values count', () => {

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { maxSubArraySum } from '../../../patterns/sliding-window/MaxSubArraySum'
+import { maxSubArraySum } from '../../../src/patterns/sliding-window/MaxSubArraySum'
 
 describe('Validate maxSubArraySum', () => {
   it('should return max sub array sum', () => {

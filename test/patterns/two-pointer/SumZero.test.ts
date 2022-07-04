@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { sumZero } from '../../../patterns/two-pointer/SumZero'
+import { sumZero } from '../../../src/patterns/two-pointer/SumZero'
 
 describe('Validate sumZero', () => {
   it('should return pair whose sum is 0', () => {

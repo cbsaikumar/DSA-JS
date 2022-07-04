@@ -16,6 +16,6 @@
     "noImplicitReturns": true,
     "skipLibCheck": true
   },
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*", "test"],
   "ignore": ["node_modules"]
 }

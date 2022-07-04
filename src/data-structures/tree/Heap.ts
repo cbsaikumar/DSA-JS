@@ -1,18 +1,18 @@
 // Binary trea where each node is greater than it's both children (should be true recursively - meaning for every node)
-export class MaxBinaryHeap {
-  private values: number[]
+export class MaxBinaryHeap<T = number> {
+  private values: T[]
 
   constructor() {
     this.values = []
   }
 
-  private swap = (arr: number[], firstIdx: number, secondIdx: number) => {
+  private swap = (arr: T[], firstIdx: number, secondIdx: number) => {
     const temp = arr[firstIdx]
     arr[firstIdx] = arr[secondIdx]
     arr[secondIdx] = temp
   }
 
-  insert(value: number): number[] {
+  insert(value: T): T[] {
     this.values.push(value)
 
     let elementIdx = this.values.length - 1
@@ -28,7 +28,7 @@ export class MaxBinaryHeap {
     return this.values
   }
 
-  extractMax(): number | undefined {
+  extractMax(): T | undefined {
     let max
     let elementIdx = 0
     let newIdx = this.values.length - 1

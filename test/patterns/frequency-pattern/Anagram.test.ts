@@ -1,5 +1,5 @@
-import { validAnagrams } from '../../../patterns/frequency-pattern/Anagram'
 import { describe, it, expect } from 'vitest'
+import { validAnagrams } from '../../../src/patterns/frequency-pattern/Anagram'
 
 describe('Validate validAnagrams', () => {
   it('should return true for valid inputs', () => {

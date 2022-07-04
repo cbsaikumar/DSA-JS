@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { MaxBinaryHeap } from '../../../data-structures/tree/Heap'
+import { MaxBinaryHeap } from '../../../src/data-structures/tree/Heap'
 
 describe('Heap', () => {
   it('should initialize new heap with 0 size', () => {
