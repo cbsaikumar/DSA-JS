@@ -40,10 +40,10 @@ export class LinkedList<T = number> {
       return node
     }
     let current = this.head
-    while (current.next) {
+    while (current.next?.next) {
       current = current.next
     }
-    this.tail = current.next
+    this.tail = current
     current.next = null
     this.length--
     return current
@@ -156,6 +156,24 @@ export class LinkedList<T = number> {
     return arr
   }
 
+  rotate(n: number) {
+    if (n < 0) n = this.length + n
+    n = n % this.length
+
+    if (this.length === 1 || n === 0) return this
+
+    const head = this.head
+    const current = this.get(this.length - n - 1)
+    let next = current?.next
+    this.head = next!
+    current!.next = null
+    while (next?.next) {
+      next = next.next
+    }
+    next!.next = head
+    return this
+  }
+
   print() {
     console.log(this.getItemsAsArray())
   }
@@ -185,4 +203,14 @@ function test() {
   ll.print()
   ll.set(0, 4000)
   ll.print()
+  ll.rotate(0).print()
+  ll.rotate(1).print()
+  ll.pop()
+  // ll.print()
+  ll.rotate(0).print()
+  ll.rotate(4).print()
+  ll.pop()
+  ll.rotate(10).print()
 }
+
+test()

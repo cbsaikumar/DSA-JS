@@ -84,6 +84,10 @@ export class PriorityQueue {
     console.log(this.values)
     return this.values
   }
+
+  sort() {
+    this.values.sort((a, b) => a.priority - b.priority)
+  }
 }
 
 // @ts-ignore

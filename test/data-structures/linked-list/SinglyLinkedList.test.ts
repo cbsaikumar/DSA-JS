@@ -25,6 +25,6 @@ describe('SinglyLinkedList', () => {
     ll.push(1)
     ll.push(2)
     ll.push(3)
-    expect(ll.pop()?.value).toBe(3)
+    expect(ll.pop()?.value).toBe(2)
   })
 })
